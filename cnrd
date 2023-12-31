@@ -1,0 +1,27 @@
+#!/bin/bash
+# compile and run script
+
+if [ -z "$1" ]; then 
+	echo "Usage: sh cnr.sh outputname sourcefiles (without .cpp)";
+	exit 1
+fi
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No color
+
+echo $@
+# if everything is okay run, else print error code and exit
+if compile $@; then
+	echo ""
+	printf "${GREEN}Running${NC}\n"
+	printf "${GREEN}=======${NC}\n"
+	echo ""
+	./$1;
+else
+	exit 1
+fi
+
+# remove executable after running
+rm ./$1
+exit 0
