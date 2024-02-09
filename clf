@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Formating *.cpp"
+echo "Formatting *.cpp"
 clang-format -i -style=Google *.cpp
