@@ -13,7 +13,7 @@ do
 	source+="$file.cpp "
 done
 
-if g++ -o $output -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion $source -std=c++20; then
+if g++ -o $output -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Wshadow $source -std=c++20; then
 	exit 0
 else
 	exit 1
