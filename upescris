@@ -1,2 +1,3 @@
 #!/bin/bash
+#update escris
 ln -s ~/Downloads/escris/* ~/.local/bin/
