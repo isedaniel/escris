@@ -12,8 +12,6 @@ function getOutputName() {
 
 output=$(getOutputName $1)
 
-echo $output
-
 for file in $@
 do 
 	source+="$file "

@@ -6,22 +6,19 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No color
+function getOutputName() {
+	awk -F'.cpp' '{print $1}' <<< "$1"
+}
 
-echo $@
+output=$(getOutputName $1)
+
 # if everything is okay run, else print error code and exit
 if compile $@; then
-	echo ""
-	printf "${GREEN}Running${NC}\n"
-	printf "${GREEN}=======${NC}\n"
-	echo ""
-	./$1;
+	./$output;
 else
 	exit 1
 fi
 
 # remove executable after running
-rm ./$1
+rm ./$output
 exit 0
