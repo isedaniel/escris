@@ -2,15 +2,21 @@
 # My compile script
 
 if [ -z "$1" ]; then
-	echo "Usage: compile.sh output sourcefiles (without .cpp)";
+	echo "Usage: compile sourcefiles (first sourcefile name used as output)";
 	exit 1
 fi
 
-output=$1
+function getOutputName() {
+	awk -F'.cpp' '{print $1}' <<< "$1"
+}
+
+output=$(getOutputName $1)
+
+echo $output
 
 for file in $@
 do 
-	source+="$file.cpp "
+	source+="$file "
 done
 
 if g++ -o $output -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Wshadow $source -std=c++20; then

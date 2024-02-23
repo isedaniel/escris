@@ -2,7 +2,7 @@
 # compile and run script
 
 if [ -z "$1" ]; then 
-	echo "Usage: sh cnr.sh outputname sourcefiles (without .cpp)";
+	echo "Usage: cprun sourcefiles";
 	exit 1
 fi
 
