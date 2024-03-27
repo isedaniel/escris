@@ -1,2 +1,2 @@
 #!/bin/bash
-clang-format -i -style=LLVM *.cpp
+clang-format -i -style=Google *.cpp
