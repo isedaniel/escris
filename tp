@@ -1,2 +1,2 @@
 #!/bin/bash
-cp ~/Documents/sistemas/src/templates/$1 .
+cp ~/Documents/sistemas/src/templates/$1.tex .
